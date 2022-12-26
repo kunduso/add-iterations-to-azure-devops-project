@@ -10,9 +10,8 @@ param(
     [Parameter(Mandatory=$true)]
     [String]$PAT
 )
-$PAT=$args[0]
 Write-Host '===Configuring connection to organization and Team Project'
-Write-Host "Value of PAT: $(PAT)"
+Write-Host "Value of PAT: $PAT"
 
 #//auto setting variables based on values provided
 # $StartDate = Get-Date -Year 2022 -Month 1 -Day 8

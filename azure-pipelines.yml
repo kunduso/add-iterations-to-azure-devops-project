@@ -19,4 +19,4 @@ steps:
   displayName: 'Run the ps script'
   inputs:
     filePath: '$(build.sourcesdirectory)/createIterations.ps1'
-    arguments: $(PAT)
+    arguments: -PAT "$(PAT)"
