@@ -2,6 +2,8 @@
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
+variables:
+  - group: add-iterations-to-azure-devops-project
 
 trigger:
 - main
@@ -13,3 +15,9 @@ steps:
 - script: az devops -h
   displayName: 'Run a one-line script'
 
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: 'Value of $PAT'
+    workingDirectory: '$(build.sourcesdirectory)'
+  displayName: Reading values
