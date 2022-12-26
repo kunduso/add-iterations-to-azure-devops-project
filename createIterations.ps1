@@ -7,11 +7,14 @@
 
 # delete this blog after testing
 param(
-    [Parameter(Mandatory=$true)]
-    [String]$PAT
+    [Parameter(Mandatory=$true)][String]$PAT,
+    [Parameter(Mandatory=$true)][String]$Project,
+    [Parameter(Mandatory=$true)][String]$TeamName
 )
 Write-Host '===Configuring connection to organization and Team Project'
 Write-Host "Value of PAT: $PAT"
+Write-Host "Value of Project: $Project"
+Write-Host "Value of Team: $TeamName"
 
 #//auto setting variables based on values provided
 # $StartDate = Get-Date -Year 2022 -Month 1 -Day 8
