@@ -1,4 +1,4 @@
-﻿//***Please update the values in below 5 lines before working with this code***
+﻿#//***Please update the values in below 5 lines before working with this code***
 # $PAT ="enter-PAT-value"
 # $Organization = "https://dev.azure.com/$(your-organization-name)/"
 # $Project="$(your-project-name)"
@@ -9,12 +9,12 @@
 Write-Host '===Configuring connection to organization and Team Project'
 Write-Host "Value of PAT: $(PAT)"
 
-//auto setting variables based on values provided
+#//auto setting variables based on values provided
 # $StartDate = Get-Date -Year 2022 -Month 1 -Day 8
 # $RootPath = "\"+$Project+"\Iteration\"+$StartDate.Year
 # $ParentIteration = "\"+$Project+"\Iteration"
 
-//execution begins
+#//execution begins
 # echo $PAT | az devops login --org $Organization
 # Write-Host '===Configuring connection to organization and Team Project'
 # az devops configure --defaults organization=$Organization project=$Project
