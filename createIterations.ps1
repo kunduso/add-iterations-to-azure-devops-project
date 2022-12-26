@@ -13,7 +13,7 @@ param(
     [Parameter(Mandatory=$true)][String]$Organization
 )
 #Write-Host '===Configuring connection to organization and Team Project'
-Write-Host "Value of PAT: $PAT"
+#Write-Host "Value of PAT: $PAT"
 Write-Host "Value of Project: $Project"
 Write-Host "Value of Team: $TeamName"
 Write-Host "Value of Team: $Organization"
@@ -24,7 +24,7 @@ $RootPath = "\"+$Project+"\Iteration\"+$StartDate.Year
 $ParentIteration = "\"+$Project+"\Iteration"
 
 #//execution begins
-# echo $PAT | az devops login --org $Organization
+Write-Output $PAT | az devops login --org $Organization
 # Write-Host '===Configuring connection to organization and Team Project'
 # az devops configure --defaults organization=$Organization project=$Project
 # $CreateRootIteration = az boards iteration project create --name $StartDate.Year --path $ParentIteration | ConvertFrom-Json
