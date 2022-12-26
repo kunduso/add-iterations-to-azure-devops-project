@@ -11,7 +11,7 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-# steps:
+steps:
 # - script: az devops -h
 #   displayName: 'Run a one-line script'
 
