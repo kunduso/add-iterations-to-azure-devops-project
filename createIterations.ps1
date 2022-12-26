@@ -10,6 +10,7 @@ param(
     [Parameter(Mandatory=$true)]
     [String]$PAT
 )
+$PAT=$args[0]
 Write-Host '===Configuring connection to organization and Team Project'
 Write-Host "Value of PAT: $(PAT)"
 
