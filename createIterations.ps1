@@ -6,6 +6,10 @@
 # $NumberOfSprints = 26
 
 # delete this blog after testing
+param(
+    [Parameter(Mandatory=$true)]
+    [String]$PAT
+)
 Write-Host '===Configuring connection to organization and Team Project'
 Write-Host "Value of PAT: $(PAT)"
 
