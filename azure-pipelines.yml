@@ -11,13 +11,11 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-steps:
-- script: az devops -h
-  displayName: 'Run a one-line script'
+# steps:
+# - script: az devops -h
+#   displayName: 'Run a one-line script'
 
 - task: PowerShell@2
+  displayName: 'Run the ps script'
   inputs:
-    targetType: 'inline'
-    script: 'Write-Host "Value of PAT: $(PAT)"'
-    workingDirectory: '$(build.sourcesdirectory)'
-  displayName: Reading values
+    filePath: '$(build.sourcesdirectory)/createIterations.ps1'
