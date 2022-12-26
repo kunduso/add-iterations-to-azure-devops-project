@@ -9,17 +9,19 @@
 param(
     [Parameter(Mandatory=$true)][String]$PAT,
     [Parameter(Mandatory=$true)][String]$Project,
-    [Parameter(Mandatory=$true)][String]$TeamName
+    [Parameter(Mandatory=$true)][String]$TeamName,
+    [Parameter(Mandatory=$true)][String]$Organization
 )
-Write-Host '===Configuring connection to organization and Team Project'
+#Write-Host '===Configuring connection to organization and Team Project'
 Write-Host "Value of PAT: $PAT"
 Write-Host "Value of Project: $Project"
 Write-Host "Value of Team: $TeamName"
+Write-Host "Value of Team: $Organization"
 
 #//auto setting variables based on values provided
-# $StartDate = Get-Date -Year 2022 -Month 1 -Day 8
-# $RootPath = "\"+$Project+"\Iteration\"+$StartDate.Year
-# $ParentIteration = "\"+$Project+"\Iteration"
+$StartDate = Get-Date -Year 2023 -Month 1 -Day 7
+$RootPath = "\"+$Project+"\Iteration\"+$StartDate.Year
+$ParentIteration = "\"+$Project+"\Iteration"
 
 #//execution begins
 # echo $PAT | az devops login --org $Organization
