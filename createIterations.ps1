@@ -32,7 +32,9 @@ if ($ListOfIterations.children.name -contains $StartDate.Year)
     Write-Host $iteration.name Path exists $StartDate.Year
 }
 else {
-    Write-Host $iteration.name Path does not exist $StartDate.Year
+    Write-Host $iteration.name Path does not exist and will be created.
+    $CreateRootIteration = az boards iteration project create --name $StartDate.Year --path $ParentIteration | ConvertFrom-Json
+    Write-Host 'Created Root path: '$CreateRootIteration.name
 }
 
 #     $StartDateIteration = $StartDate
