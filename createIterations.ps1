@@ -31,10 +31,10 @@ foreach ($iteration in $ListOfIterations.children)
 {
     if ($iteration.name -contains $StartDate.Year)
     {
-        Write-Host '$iteration.name Path exists $StartDate.Year'
+        Write-Host '$(iteration.name) Path exists $(StartDate.Year)'
     }
     else {
-        Write-Host '$iteration.name Path does not exist $StartDate.Year'
+        Write-Host '$(iteration.name) Path does not exist $(StartDate.Year)'
     }
     # $createiteration = false
     # if ($iteration.name -ne $StartDate.Year)
