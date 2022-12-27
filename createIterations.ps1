@@ -28,7 +28,7 @@ $ListOfIterations = az boards iteration project list --depth 1
 # Write-Host 'Created Root path: '$CreateRootIteration.name
 foreach ($Iteration in $ListOfIterations)
 {
-    Write-Host 'List of iterations: '$Iteration.name
+    Write-Host 'List of iterations: '$Iteration
 }
 
 #     $StartDateIteration = $StartDate
