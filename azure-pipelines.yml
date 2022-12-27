@@ -15,7 +15,7 @@ pool:
 steps:
 
 - task: PowerShell@2
-  displayName: 'Run the ps script'
+  displayName: 'Run the PowerShell script'
   inputs:
     filePath: '$(build.sourcesdirectory)/createIterations.ps1'
     arguments: -Organization "$(Organization)" -PAT "$(PAT)" `

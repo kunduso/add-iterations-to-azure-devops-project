@@ -39,7 +39,7 @@ else {
 $StartDateIteration = $StartDate
 For ($i=1; $i -le $NumberOfSprints; $i++) 
 {
-    $Sprint = '$(StartDate.Year)-iteration-' + $i
+    $Sprint = "$(StartDate.Year)"+"-iteration-" + $i
     Write-Host $Sprint
     # $FinishDateIteration = $StartDateIteration.AddDays(13)
     # $createIteration = az boards iteration project create --name $Sprint --path $RootPath --start-date $StartDateIteration --finish-date $FinishDateIteration --org $Organization --project $Project | ConvertFrom-Json
