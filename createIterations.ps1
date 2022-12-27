@@ -4,13 +4,14 @@
     [Parameter(Mandatory=$true)][String]$TeamName,
     [Parameter(Mandatory=$true)][String]$Organization,
     [Parameter(Mandatory=$true)][String]$YearOfIteration,
-    [Parameter(Mandatory=$true)][String]$FirstDateOfIteration
+    [Parameter(Mandatory=$true)][String]$FirstDateOfIteration,
+    [Parameter(Mandatory=$true)][String]$NumberOfSprints
 )
 Write-Host "Organization: $Organization"
 Write-Host "Project: $Project"
 Write-Host "Team: $TeamName"
 
-$NumberOfSprints = 4
+#$NumberOfSprints = 4
 #//auto setting variables based on values provided
 $StartDate = Get-Date -Year $YearOfIteration -Month 1 -Day $FirstDateOfIteration
 $RootPath = "\"+$Project+"\Iteration\"+$StartDate.Year
