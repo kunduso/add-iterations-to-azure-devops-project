@@ -8,14 +8,16 @@ param(
     [Parameter(Mandatory=$true)][String]$PAT,
     [Parameter(Mandatory=$true)][String]$Project,
     [Parameter(Mandatory=$true)][String]$TeamName,
-    [Parameter(Mandatory=$true)][String]$Organization
+    [Parameter(Mandatory=$true)][String]$Organization,
+    [Parameter(Mandatory=$true)][String]$YearOfIteration,
+    [Parameter(Mandatory=$true)][String]$FirstDateOfIteration
 )
 Write-Host "Value of Project: $Project"
 Write-Host "Value of Team: $TeamName"
 Write-Host "Value of Team: $Organization"
 $NumberOfSprints = 26
 #//auto setting variables based on values provided
-$StartDate = Get-Date -Year 2023 -Month 1 -Day 7
+$StartDate = Get-Date -Year $YearOfIteration -Month 1 -Day $FirstDateOfIteration
 $RootPath = "\"+$Project+"\Iteration\"+$StartDate.Year
 $ParentIteration = "\"+$Project+"\Iteration"
 
@@ -30,7 +32,11 @@ $ListOfIterations = az boards iteration project list --depth 1 | ConvertFrom-Jso
 
 foreach ($iteration in $ListOfIterations.children)
 {
-    Write-Host $iteration.name
+    if ($iteration.name == $StartDate.Year)
+    {
+        Write-Host $iteration.name
+    }
+
 }
 
 #     $StartDateIteration = $StartDate
