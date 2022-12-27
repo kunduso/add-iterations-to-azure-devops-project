@@ -12,11 +12,5 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-# - script: az devops -h
-#   displayName: 'Run a one-line script'
-
-- task: PowerShell@2
-  displayName: 'Run the ps script'
-  inputs:
-    filePath: '$(build.sourcesdirectory)/createIterations.ps1'
-    arguments: -Organization "$(Organization)" -PAT "$(PAT)" -Project "$(Project)" -TeamName "$(TeamName)"
+- script: az devops -h
+  displayName: 'Run a one-line script'
