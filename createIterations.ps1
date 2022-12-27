@@ -11,7 +11,7 @@
 Write-Host "`nValues provided to the script:"
 Write-Host "Organization: $Organization"
 Write-Host "Project: $Project"
-Write-Host "Team: $TeamName"
+Write-Host "Team: $TeamName`n"
 
 #$NumberOfSprints = 4
 #//auto setting variables based on values provided
@@ -21,7 +21,7 @@ $ParentIteration = "\"+$Project+"\Iteration"
 
 #//execution begins
 Write-Output $PAT | az devops login --org $Organization
-Write-Host '`n===Configuring connection to organization and Team Project==='
+Write-Host "`n===Configuring connection to organization and Team Project==="
 az devops configure --defaults organization=$Organization project=$Project
 $ListOfIterations = az boards iteration project list --depth 1 | ConvertFrom-Json
 
@@ -39,7 +39,7 @@ else {
 $StartDateIteration = $StartDate
 For ($i=1; $i -le $NumberOfSprints; $i++) 
 {
-    $Sprint = '$StartDate.Year-iteration-' + $i
+    $Sprint = '$(StartDate.Year)-iteration-' + $i
     Write-Host $Sprint
     # $FinishDateIteration = $StartDateIteration.AddDays(13)
     # $createIteration = az boards iteration project create --name $Sprint --path $RootPath --start-date $StartDateIteration --finish-date $FinishDateIteration --org $Organization --project $Project | ConvertFrom-Json
