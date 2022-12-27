@@ -27,17 +27,13 @@ Write-Host '===Configuring connection to organization and Team Project'
 az devops configure --defaults organization=$Organization project=$Project
 $ListOfIterations = az boards iteration project list --depth 1 | ConvertFrom-Json
 
-foreach ($iteration in $ListOfIterations.children)
+if ($ListOfIterations.children.name -contains $StartDate.Year)
 {
-    if ($iteration.name -contains $StartDate.Year)
-    {
-        Write-Host $iteration.name Path exists $StartDate.Year
-    }
-    else {
-        Write-Host $iteration.name Path does not exist $StartDate.Year
-    }
+    Write-Host $iteration.name Path exists $StartDate.Year
 }
-Write-Host $ListOfIterations.children.name
+else {
+    Write-Host $iteration.name Path does not exist $StartDate.Year
+}
 
 #     $StartDateIteration = $StartDate
 # For ($i=1; $i -le $NumberOfSprints; $i++) 
