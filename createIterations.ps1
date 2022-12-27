@@ -40,7 +40,7 @@ $ListOfIterations = az boards iteration project list --depth 1 | ConvertFrom-Jso
 #     #     Write-Host 'Created Root path: '$CreateRootIteration.name
 #     # }
 # }
-if ($ListOfIterations.children.contains($StartDate.Year))
+if ($ListOfIterations.children -contains $StartDate.Year)
 {
     Write-Host 'Path exists'
 }
