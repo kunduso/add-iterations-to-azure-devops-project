@@ -34,16 +34,16 @@ else {
     Write-Host "`n$($StartDate.Year) does not exist and will be created."
     $CreateRootIteration = az boards iteration project create --name $StartDate.Year --path $ParentIteration | ConvertFrom-Json
     Write-Host 'Created Root path: '$CreateRootIteration.name
+    $StartDateIteration = $StartDate
+    For ($i=1; $i -le $NumberOfSprints; $i++) 
+    {
+        $Sprint = "$($StartDate.Year)"+"-iteration-" + $i
+        $FinishDateIteration = $StartDateIteration.AddDays(13)
+        $createIteration = az boards iteration project create --name $Sprint --path $RootPath --start-date $StartDateIteration --finish-date $FinishDateIteration --org $Organization --project $Project | ConvertFrom-Json
+        $addIteration = az boards iteration team add --id $createIteration.Identifier --team $TeamName --org $Organization --project $Project | ConvertFrom-Json
+        Write-Host $addIteration.name 'created on path'$addIteration.path
+        $StartDateIteration = $FinishDateIteration.AddDays(1)
+    }
 }
 
-$StartDateIteration = $StartDate
-For ($i=1; $i -le $NumberOfSprints; $i++) 
-{
-    $Sprint = "$($StartDate.Year)"+"-iteration-" + $i
-    $FinishDateIteration = $StartDateIteration.AddDays(13)
-    $createIteration = az boards iteration project create --name $Sprint --path $RootPath --start-date $StartDateIteration --finish-date $FinishDateIteration --org $Organization --project $Project | ConvertFrom-Json
-    $addIteration = az boards iteration team add --id $createIteration.Identifier --team $TeamName --org $Organization --project $Project | ConvertFrom-Json
-    Write-Host $addIteration.name 'created on path'$addIteration.path
-    $StartDateIteration = $FinishDateIteration.AddDays(1)
-}
 az devops logout
