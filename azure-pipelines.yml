@@ -18,5 +18,5 @@ steps:
   displayName: 'Run the ps script'
   inputs:
     filePath: '$(build.sourcesdirectory)/createIterations.ps1'
-    arguments: -Organization "$(Organization)" -PAT "$(PAT)" -Project "$(Project)" -TeamName "$(TeamName)"`
+    arguments: -Organization "$(Organization)" -PAT "$(PAT)" -Project "$(Project)" -TeamName "$(TeamName)" `
       -YearOfIteration "$(YearOfIteration)" -FirstDateOfIteration "$(FirstDateOfIteration)"

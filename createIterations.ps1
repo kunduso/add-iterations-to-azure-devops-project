@@ -26,17 +26,14 @@ Write-Output $PAT | az devops login --org $Organization
 Write-Host '===Configuring connection to organization and Team Project'
 az devops configure --defaults organization=$Organization project=$Project
 $ListOfIterations = az boards iteration project list --depth 1 | ConvertFrom-Json
-#$CreateRootIteration = az boards iteration project create --name $StartDate.Year --path $ParentIteration | ConvertFrom-Json
-# Write-Host 'Created Root path: '$CreateRootIteration.name
-
 
 foreach ($iteration in $ListOfIterations.children)
 {
-    if ($iteration.name -eq $StartDate.Year)
+    if ($iteration.name -ne $StartDate.Year)
     {
-        Write-Host $iteration.name
+        $CreateRootIteration = az boards iteration project create --name $StartDate.Year --path $ParentIteration | ConvertFrom-Json
+        Write-Host 'Created Root path: '$CreateRootIteration.name
     }
-
 }
 
 #     $StartDateIteration = $StartDate
