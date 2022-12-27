@@ -29,7 +29,7 @@ $ListOfIterations = az boards iteration project list --depth 1 | ConvertFrom-Jso
 
 if ($ListOfIterations.children.name -contains $StartDate.Year)
 {
-    Write-Host $iteration.name Path exists $StartDate.Year
+    Write-Host $"($iteration.name) path already exists and won't be created."
 }
 else {
     Write-Host $iteration.name Path does not exist and will be created.
