@@ -23,9 +23,10 @@ $ParentIteration = "\"+$Project+"\Iteration"
 Write-Output $PAT | az devops login --org $Organization
 Write-Host '===Configuring connection to organization and Team Project'
 az devops configure --defaults organization=$Organization project=$Project
-az boards iteration project list --depth 1
+$ListOfIterations = az boards iteration project list --depth 1
 #$CreateRootIteration = az boards iteration project create --name $StartDate.Year --path $ParentIteration | ConvertFrom-Json
 # Write-Host 'Created Root path: '$CreateRootIteration.name
+Write-Host 'List of iterations: '$ListOfIterations.Name
 #     $StartDateIteration = $StartDate
 # For ($i=1; $i -le $NumberOfSprints; $i++) 
 # {
