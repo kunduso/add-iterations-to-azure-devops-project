@@ -1,5 +1,5 @@
 [![](https://img.shields.io/badge/Add%20Iterations%20To%20Azure%20DevOps-BuildStatus-informational)](./amg_workspace/)
-[![Build Status](https://littlecoding.visualstudio.com/Project-03/_apis/build/status/kunduso.add-iterations-to-azure-devops-project?branchName=main)](https://littlecoding.visualstudio.com/Project-03/_build/latest?definitionId=35&branchName=main)<br />
+[![Build Status](https://littlecoding.visualstudio.com/Open-Project/_apis/build/status/kunduso.add-iterations-to-azure-devops-project?branchName=main)](https://littlecoding.visualstudio.com/Open-Project/_build/latest?definitionId=36&branchName=main)<br />
 
 ![Image](https://skdevops.files.wordpress.com/2021/12/60-image-1.png)
 ## Motivation
