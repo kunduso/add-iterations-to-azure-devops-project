@@ -6,9 +6,14 @@ variables:
   - group: add-iterations-to-azure-devops-project
 
 trigger:
-- main
-- review-commands
-
+  branches:
+    include:
+      - main
+  paths:
+    include:
+    - '*'
+    exclude:
+    - 'README.md'
 pool:
   vmImage: ubuntu-latest
 
