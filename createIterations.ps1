@@ -32,7 +32,7 @@ $ListOfIterations = az boards iteration project list --depth 1 | ConvertFrom-Jso
 
 foreach ($iteration in $ListOfIterations.children)
 {
-    if ($iteration.name == $StartDate.Year)
+    if ($iteration.name -eq $StartDate.Year)
     {
         Write-Host $iteration.name
     }
