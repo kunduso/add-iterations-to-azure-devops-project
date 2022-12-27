@@ -36,18 +36,8 @@ foreach ($iteration in $ListOfIterations.children)
     else {
         Write-Host $iteration.name Path does not exist $StartDate.Year
     }
-    # $createiteration = false
-    # if ($iteration.name -ne $StartDate.Year)
-    # {
-
-    # }
-    # if ($createiteration)
-    # {
-    #     $CreateRootIteration = az boards iteration project create --name $StartDate.Year --path $ParentIteration | ConvertFrom-Json
-    #     Write-Host 'Created Root path: '$CreateRootIteration.name
-    # }
 }
-
+Write-Host $ListOfIterations.children.name
 
 #     $StartDateIteration = $StartDate
 # For ($i=1; $i -le $NumberOfSprints; $i++) 
