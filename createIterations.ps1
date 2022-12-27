@@ -26,8 +26,12 @@ az devops configure --defaults organization=$Organization project=$Project
 $ListOfIterations = az boards iteration project list --depth 1 | ConvertFrom-Json
 #$CreateRootIteration = az boards iteration project create --name $StartDate.Year --path $ParentIteration | ConvertFrom-Json
 # Write-Host 'Created Root path: '$CreateRootIteration.name
-Write-Host $ListOfIterations.children
 
+
+foreach ($iteration in $ListOfIterations.children)
+{
+    Write-Host $iteration.name
+}
 
 #     $StartDateIteration = $StartDate
 # For ($i=1; $i -le $NumberOfSprints; $i++) 
