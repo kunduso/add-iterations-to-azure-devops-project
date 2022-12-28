@@ -9,17 +9,20 @@
     [Parameter(Mandatory=$true)][String]$NumberOfSprints
 )
 Write-Host "`nValues provided to the script:"
-Write-Host "Organization: $Organization"
+#Write-Host "Organization: $Organization"
 Write-Host "Project: $Project"
-Write-Host "Team: $TeamName`n"
+Write-Host "Team: $TeamName"
+Write-Host "YearOfIteration: $YearOfIteration"
+Write-Host "MonthOfIteration: $MonthOfIteration"
+Write-Host "StartDateOfIteration: $StartDateOfIteration"
+Write-Host "NumberOfSprints: $NumberOfSprints`n"
 
-#$NumberOfSprints = 4
-#//auto setting variables based on values provided
+#auto setting variables based on values provided
 $StartDate = Get-Date -Year $YearOfIteration -Month $MonthOfIteration -Day $StartDateOfIteration
 $RootPath = "\"+$Project+"\Iteration\"+$StartDate.Year
 $ParentIteration = "\"+$Project+"\Iteration"
 
-#//execution begins
+#execution begins
 Write-Output $PAT | az devops login --org $Organization
 Write-Host "`n===Configuring connection to organization and Team Project==="
 az devops configure --defaults organization=$Organization project=$Project
