@@ -6,11 +6,27 @@ variables:
   - group: add-iterations-to-azure-devops-project
 
 trigger:
-- main
-
+  branches:
+    include:
+      - main
+  paths:
+    include:
+    - '*'
+    exclude:
+    - 'README.md'
 pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: az devops -h
-  displayName: 'Run a one-line script'
+
+- task: PowerShell@2
+  displayName: 'Run the PowerShell script'
+  inputs:
+    filePath: '$(build.sourcesdirectory)/createIterations.ps1'
+    arguments: -Organization "$(Organization)" -PAT "$(PAT)" `
+      -Project "$(Project)" `
+      -TeamName "$(TeamName)" `
+      -YearOfIteration "$(YearOfIteration)" `
+      -MonthOfIteration "$(MonthOfIteration)" `
+      -StartDateOfIteration "$(StartDateOfIteration)" `
+      -NumberOfSprints "$(NumberOfSprints)"
