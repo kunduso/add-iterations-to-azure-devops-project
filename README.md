@@ -33,4 +33,4 @@ Step 1: Create [Azure DevOps PAT](https://learn.microsoft.com/en-us/azure/devops
 <br />Step 2: Create a variable group to store the required variables
 <br />Step 3: Create a pipeline in Azure DevOps
 <br />Step 4: Run the pipeline in Azure DevOps
-<br />Step 5: Review iteration and [revoke PAT](https://learn.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=Windows#revoke-a-pat)
+<br />Step 5: Review iterations and [revoke PAT](https://learn.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=Windows#revoke-a-pat)
