@@ -6,7 +6,7 @@
 Each year the last two weeks of December are when I start planning for the following year. I use Azure DevOps to track my work -break down goals into features, features into user stories, which I map into sprints. Creating iterations and adding them to projects is something that anyone can automate.
 
 <br />**UPDATE:**
-<br />In Dec-2022, I automated the script using Azure DevOps pipeline.
+<br />In Dec-2022, I automated the script using Azure DevOps pipeline. If you are interested in [using Azure DevOps build pipeline.](#using-azure-devops-build-pipeline)
 
 ## **Running the PowerShell script from your local?**
 ## Prerequisites
