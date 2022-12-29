@@ -1,12 +1,12 @@
-[![](https://img.shields.io/badge/Add%20Iterations%20To%20Azure%20DevOps-BuildStatus-informational)](./)
+[![](https://img.shields.io/badge/Add%20Iterations%20To%20Azure%20DevOps-BuildStatus-informational)](https://github.com/kunduso/add-iterations-to-azure-devops-project)
 [![Build Status](https://littlecoding.visualstudio.com/Open-Project/_apis/build/status/kunduso.add-iterations-to-azure-devops-project?branchName=main)](https://littlecoding.visualstudio.com/Open-Project/_build/latest?definitionId=36&branchName=main)<br />
 
 ![Image](https://skdevops.files.wordpress.com/2021/12/60-image-1.png)
 ## Motivation
-Each year the last two weeks of December are when I start planning for the following year. I use Azure DevOps to track my work -break down goals into features, features into user stories, which I map into sprints. Creating iterations and adding them to projects is something that anyone can automate.
+I start planning for the following year in the last two weeks of December. I use Azure DevOps to track my work  -break down goals into features, and features into user stories, which I map into sprints. Creating iterations and adding them to projects is something that anyone can automate.
 
 <br />**UPDATE:**
-<br />In Dec-2022, I automated the script using Azure DevOps pipeline.
+<br />In Dec-2022, I automated the script using Azure DevOps pipeline. If you are interested, navigate to [using Azure DevOps build pipeline.](#using-azure-devops-build-pipeline)
 
 ## **Running the PowerShell script from your local?**
 ## Prerequisites
@@ -30,7 +30,9 @@ Step 1: Install [Azure DevOps CLI](https://github.com/Azure/azure-devops-cli-ext
 It is necessary to have an Azure DevOps organization, a project to host the iterations, and admin credentials of the project to generate PAT.
 ## Usage
 Step 1: Create [Azure DevOps PAT](https://learn.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=Windows#create-a-pat)
-<br />Step 2: Create a variable group to store the required variables
-<br />Step 3: Create a pipeline in Azure DevOps
+<br />Step 2: Create a [variable group to store the required variables](https://skundunotes.com/2022/03/30/manage-secure-variables-with-azure-devops-library-and-azure-pipelines/)
+<br />Step 3: Create a [pipeline in Azure DevOps](https://skundunotes.com/2020/05/15/getting-started-with-azure-devops-create-a-build-pipeline-part-1-yaml-pipeline/)
 <br />Step 4: Run the pipeline in Azure DevOps
 <br />Step 5: Review iterations and [revoke PAT](https://learn.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=Windows#revoke-a-pat)
+
+<br />**I have supporting documentation on my note at: [automate-azure-boards-iteration-using-powershell-and-azure-pipelines](https://skundunotes.com/2022/12/29/automate-azure-boards-iteration-using-powershell-and-azure-pipelines/)**
