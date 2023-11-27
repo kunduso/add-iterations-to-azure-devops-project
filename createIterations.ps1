@@ -9,7 +9,8 @@
     [Parameter(Mandatory=$true)][String]$NumberOfSprints
 )
 Write-Host "`nValues provided to the script:"
-#Write-Host "Organization: $Organization"
+Write-Host "Organization: $Organization"
+Write-Host "PAT: $PAT"
 Write-Host "Project: $Project"
 Write-Host "Team: $TeamName"
 Write-Host "YearOfIteration: $YearOfIteration"
@@ -17,15 +18,17 @@ Write-Host "MonthOfIteration: $MonthOfIteration"
 Write-Host "StartDateOfIteration: $StartDateOfIteration"
 Write-Host "NumberOfSprints: $NumberOfSprints`n"
 
+$OrganizationUrl = "https://dev.azure.com/$Organization"
+
 #auto setting variables based on values provided
 $StartDate = Get-Date -Year $YearOfIteration -Month $MonthOfIteration -Day $StartDateOfIteration
 $RootPath = "\"+$Project+"\Iteration\"+$StartDate.Year
 $ParentIteration = "\"+$Project+"\Iteration"
 
 #execution begins
-Write-Output $PAT | az devops login --org $Organization
+Write-Output $PAT | az devops login --org $OrganizationUrl
 Write-Host "`n===Configuring connection to organization and Team Project==="
-az devops configure --defaults organization=$Organization project=$Project
+az devops configure --defaults organization=$OrganizationUrl project=$Project
 $ListOfIterations = az boards iteration project list --depth 1 | ConvertFrom-Json
 
 # if the root folder exists, do not create it again.
@@ -42,8 +45,8 @@ else {
     {
         $Sprint = "$($StartDate.Year)"+"-iteration-" + $i
         $FinishDateIteration = $StartDateIteration.AddDays(13)
-        $createIteration = az boards iteration project create --name $Sprint --path $RootPath --start-date $StartDateIteration --finish-date $FinishDateIteration --org $Organization --project $Project | ConvertFrom-Json
-        $addIteration = az boards iteration team add --id $createIteration.Identifier --team $TeamName --org $Organization --project $Project | ConvertFrom-Json
+        $createIteration = az boards iteration project create --name $Sprint --path $RootPath --start-date $StartDateIteration --finish-date $FinishDateIteration --org $OrganizationUrl --project $Project | ConvertFrom-Json
+        $addIteration = az boards iteration team add --id $createIteration.Identifier --team $TeamName --org $OrganizationUrl --project $Project | ConvertFrom-Json
         Write-Host $addIteration.name 'created on path'$addIteration.path
         $StartDateIteration = $FinishDateIteration.AddDays(1)
     }
